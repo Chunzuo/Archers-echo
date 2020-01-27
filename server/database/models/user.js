@@ -1,0 +1,41 @@
+//import mongoose, our ODM for mongoDB
+const mongoose = require("mongoose");
+
+//Define all of its fields, like columns of a SQL table
+const definition = {
+  email: { type: String, required: true },
+  status: { type: Number, default: 0 }, // 0: Not activate, 1: Activate, 2: Locked, 3: In activate
+  socketId: { type: String, default: null },
+  role: { type: Number, default: 0 }, //0: normal user, 1: admin
+  loginAttempt: { type: Number, default: 0 },
+  lastLoginTime: { type: Date, default: null },
+  userName: { type: String, default: "" },
+  companyName: { type: String, default: "" },
+  uid: { type: String, required: true } // uId for Firebase
+  // userId: { type: String, required: true, unique: true },
+  // password: { type: String, required: true },
+  // isActive: { type: Boolean, default: false },
+  // devices: [{ type: mongoose.Schema.Types.ObjectId, ref: "Device" }],
+  // notificationDuration: { type: Number, default: 20 },
+  // company: { type: String, default: "", required: false },
+  // profileUrl: {
+  //   type: String,
+  //   default: "https://s3.us-east-2.amazonaws.com/archeresecho/default.png",
+  //   required: false
+  // },
+  // activatedAt: { type: Date, default: null },
+  // passwordUpdatedAt: { type: Date, default: Date.now },
+  // socketId: { type: String, default: "" },
+  // ipAddress: { type: String, default: "" },
+  // name: { type: String, default: "" },
+  // email: { type: String, default: "" }
+};
+
+//Set any options for the schema
+const options = { timestamps: true };
+
+//make the schema as a new instance of a mongoose schema, using our definition and options
+const userSchema = new mongoose.Schema(definition, options);
+
+//export that boye
+module.exports = mongoose.model("User", userSchema);
