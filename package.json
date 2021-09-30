@@ -25,7 +25,7 @@
     "firebase": "^5.10.0",
     "firebase-admin": "^7.3.0",
     "googleapis": "^39.1.0",
-    "handsontable": "^7.0.2",
+    "handsontable": "^10.0.0",
     "iplocation": "^6.1.0",
     "jquery": "^3.4.0",
     "jsontoxml": "^1.0.1",
